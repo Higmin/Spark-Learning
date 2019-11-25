@@ -19,6 +19,10 @@ object KafkaEventProducer {
     "d7f141563005d1b5d0d3dd30138f3f62", "c8ee90aade1671a21336c721512b817a",
     "6b67c8c700427dee7552f81f3228c927", "a95f22eabc4fd4b580c011a3161a9d9d")
 
+  private val sites = Array(
+    "Android","IOS","PC"
+  )
+
   private val random = new Random()
 
   private var pointer = -1
@@ -30,6 +34,16 @@ object KafkaEventProducer {
       users(pointer)
     }else {
       users(pointer)
+    }
+  }
+
+  def getSite():String = {
+    pointer = pointer + 1
+    if (pointer >= sites.length){
+      pointer = 0
+      sites(pointer)
+    }else {
+      sites(pointer)
     }
   }
 
@@ -51,10 +65,10 @@ object KafkaEventProducer {
     while (true) {
       val event = new JSONObject()
       event
-        .accumulate("uid", getUserID())
-        .accumulate("event_time", System.currentTimeMillis.toString)
-        .accumulate("os_type", "Android")
-        .accumulate("click_count", click())
+        .accumulate("uid", getUserID()) // 用户id
+        .accumulate("event_time", System.currentTimeMillis.toString) // 点击时间
+        .accumulate("os_type", getSite()) // 终端类型
+        .accumulate("click_count", click()) // 点击次数
 
       // produce event message
       producer.send(new ProducerRecord[String,String]("user_events",event.toString()))
