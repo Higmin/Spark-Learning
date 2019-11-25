@@ -11,6 +11,7 @@ import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 
 
 /**
+  * 读取kafka中的数据，结果存在redis中
   * 实现实时统计每个用户的点击次数，它是按照用户分组进行累加次数，逻辑比较简单
   * 关键是在实现过程中要注意一些问题，如对象序列化等
   */
@@ -19,7 +20,7 @@ object UserClickCountAnalytics {
     // 创建 SparkConf 和 StreamingContext
     val master = if (args.length > 0) args(0) else "local[1]"
     val conf = new SparkConf().setMaster(master).setAppName("UserClickCountAnalytics")
-    val ssc = new StreamingContext(conf, Duration(5000))
+    val ssc = new StreamingContext(conf, Seconds(5)) // 按5S来划分一个微批处理
 
     // kafka 配置：消费Kafka 中，topic为 user_events的消息
     val topics = Array("user_events")
@@ -45,9 +46,9 @@ object UserClickCountAnalytics {
         Some(data)
       })
 
-    // 统计用户点击次数
-    val userClicks = events.map(x => {(x.getString("uid"),x.getInt("click_count"))}).reduceByKey(_+_)
-//    userClicks.foreachRDD(rdd =>{rdd.foreach(println(_))}) // 用于测试数据格式
+    // 统计用户点击次数  根据uid 统计 click_count（累加是在redis中做的）
+    val userClicks = events.map(x => {(x.getString("uid"),x.getInt("click_count"))}) // 计算每个微批处理的统计结果
+      .reduceByKey(_+_)
     userClicks.foreachRDD(rdd => {
       rdd.foreachPartition(partitionOfRecords => {
         partitionOfRecords.foreach(pair => {
@@ -55,7 +56,7 @@ object UserClickCountAnalytics {
           jedis.select(dbIndex)
           val uid = pair._1
           val clickCount = pair._2
-          jedis.hincrBy(clickHashKey, uid, clickCount)
+          jedis.hincrBy(clickHashKey, uid, clickCount) // 为哈希表clickHashKey中的域uid的值加上增量increment。（将每个微批处理的统计结果 根据uid分组 累加 起来）
           RedisClient.pool.returnResource(jedis)
         })
       })
