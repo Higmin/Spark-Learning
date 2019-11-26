@@ -13,9 +13,9 @@ Spark 任务三：最受欢迎的前三部电影(平均评分最高的三部电�
 
 ## 2.Kafka + SparkStreaming + Redis
 Kafka + SparkStreaming + Redis 模拟 Kafka 生产者 实时写入用户行为的事件数据，数据是JSON格式  
-Kafka + SparkStreaming + Redis scala实现Redis 客户端
-Kafka + SparkStreaming + Redis 实现实时统计每个用户的点击次数，它是按照用户分组进行累加次数
-Kafka + SparkStreaming + Redis 每5秒 统计 过去10秒 每种终端 收到的点击量
+Kafka + SparkStreaming + Redis scala实现Redis 客户端  
+Kafka + SparkStreaming + Redis 实现实时统计每个用户的点击次数，它是按照用户分组进行累加次数  
+Kafka + SparkStreaming + Redis 每5秒 统计 过去10秒 每种终端 收到的点击量  
 注意：
   * 1. 使用 SparkStreaming窗口 计算需要设置检查点 checkpoint
   * 2. 窗口滑动长度和窗口长度一定要是SparkStreaming微批处理时间的整数倍,不然会报错
