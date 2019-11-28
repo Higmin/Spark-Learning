@@ -1,12 +1,12 @@
-package org.sparkStreaming
+package org.sparkStreaming.kafka_sparkStreaming_mysql
 
 import net.sf.json.JSONObject
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.SparkConf
-import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.streaming.kafka010.KafkaUtils
 import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
+import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 /**
   * 每5秒 统计 过去10秒 每种终端 收到的点击量
@@ -54,12 +54,19 @@ object UserClickCountByWindowAnalytics {
     userClicks.foreachRDD(rdd => {
       rdd.foreachPartition(partitionOfRecords => {
         partitionOfRecords.foreach(pair => {
-          val jedis = RedisClient.pool.getResource
-          jedis.select(dbIndex)
+          val conn = DruidConnectionPool.getDataSource.getConnection
           val os_type = pair._1
           val clickCount = pair._2
-          jedis.lpush(os_type,String.valueOf(clickCount))
-          RedisClient.pool.returnResource(jedis)
+          val sql_isExist = "SELECT * from streaming_ostype where os_type = '" + os_type + "'"
+          val sql_insert = "insert into streaming_ostype(os_type,clickCount) values('" + os_type + "'," + clickCount + ")"
+          val resultSet  = conn.createStatement().executeQuery(sql_isExist)
+          if (resultSet.next()) {
+            val count = resultSet.getString(2).toInt + clickCount.toInt
+            val sql_update = "update streaming_ostype set clickCount ='"  + count + "' where os_type = '" + os_type + "'"
+            conn.createStatement().executeUpdate(sql_update)
+          }
+          else conn.createStatement().executeUpdate(sql_insert)
+          conn.close()
         })
       })
     })
