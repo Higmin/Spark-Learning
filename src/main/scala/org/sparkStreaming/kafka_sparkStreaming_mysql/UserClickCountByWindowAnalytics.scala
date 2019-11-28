@@ -19,10 +19,12 @@ object UserClickCountByWindowAnalytics {
   def main(args: Array[String]): Unit = {
     // 创建 SparkConf 和 StreamingContext
     val master = if (args.length > 0) args(0) else "local[1]"
-    val conf = new SparkConf().setMaster(master).setAppName("UserClickCountAnalytics")
+    // 创建检查点路径
+    val checkpointDir = if (args.length > 1) args(1) else "data/checkpoint/mysql/UserClickCountByWindowAnalytics"
+    val conf = new SparkConf().setMaster(master).setAppName("UserClickCountByWindowAnalytics")
     val ssc = new StreamingContext(conf, Seconds(5)) // 按5S来划分一个微批处理
     // 设置检查点
-    ssc.checkpoint("data/checkpoint")
+    ssc.checkpoint(checkpointDir)
 
     // kafka 配置：消费Kafka 中，topic为 user_events的消息
     val topics = Array("user_events")

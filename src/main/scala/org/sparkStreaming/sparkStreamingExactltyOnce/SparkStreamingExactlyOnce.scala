@@ -18,17 +18,23 @@ import org.sparkStreaming.kafka_sparkStreaming_mysql.DruidConnectionPool
   * 此外，我们在编写计算流程时也需要遵循一定规范，才能真正实现 Exactly-once。
   */
 object SparkStreamingExactlyOnce {
+
   def main(args: Array[String]): Unit = {
 
     // 创建 SparkConf 和 StreamingContext
     val master = if (args.length > 0) args(0) else "local[1]"
     // 创建检查点路径
-    val checkpointDir = if (args.length > 1) args(1) else "data/checkpoint"
+    val checkpointDir = if (args.length > 1) args(1) else "data/checkpoint/exactlyOnce/SparkStreamingExactlyOnce"
     // 创建SparkConf
-    val conf = new SparkConf().setMaster(master).setAppName("UserClickCountAnalytics")
+    val conf = new SparkConf().setMaster(master).setAppName("SparkStreamingExactlyOnce")
+
+    // kafka 配置：消费Kafka 中，topic为 user_events的消息
+    val brokers = if (args.length > 2) args(2) else "192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092"
+    val topicNames = if (args.length > 3) args(3) else "user_events"
 
     def createSSC(): StreamingContext = {
       val ssc = new StreamingContext(conf, Seconds(5)) // 按5S来划分一个微批处理
+      kafkaTest(ssc,brokers,topicNames) // Spark 的 Transform和Action
       ssc.checkpoint(checkpointDir)
       ssc
     }
@@ -36,23 +42,28 @@ object SparkStreamingExactlyOnce {
     // 如果重启的话，可以从检查点恢复
     val ssc = StreamingContext.getOrCreate(checkpointDir,createSSC)
 
-    // kafka 配置：消费Kafka 中，topic为 user_events的消息
-    val brokers = if (args.length > 2) args(2) else "192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092"
-    val topicNames = if (args.length > 3) args(3) else "user_events"
-    val topics = Array(topicNames)
-    // 读取kafka数据
-    val kafkaParams = Map[String,Object](
-      "bootstrap.servers" -> brokers,
-      "key.deserializer" -> classOf[StringDeserializer],
-      "value.deserializer" -> classOf[StringDeserializer],
-      "group.id" -> "use_a_separate_group_id_for_each_stream",
-      "auto.offset.reset" -> "latest",
-      "enable.auto.commit" -> (false: java.lang.Boolean)
-    )
-    // redis 存储
-    val dbIndex = 2
-    val clickHashKey = "app::user:click"
+    ssc.start()
+    ssc.awaitTermination()
+  }
 
+  /**
+    *  消费 Kafka 数据 的 Transform和Action
+    * @param ssc
+    * @param brokers
+    * @param topicNames
+    */
+  def kafkaTest(ssc: StreamingContext, brokers: String, topicNames: String): Unit ={
+
+    val topics = Array(topicNames)
+    // kafka 参数配置
+    val kafkaParams = Map[String,Object](
+    "bootstrap.servers" -> brokers,
+    "key.deserializer" -> classOf[StringDeserializer],
+    "value.deserializer" -> classOf[StringDeserializer],
+    "group.id" -> "use_a_separate_group_id_for_each_stream",
+    "auto.offset.reset" -> "latest",
+    "enable.auto.commit" -> (false: java.lang.Boolean)
+    )
     // 获取日志数据 KafkaUtils.createDirectStream : Direct API 可以提供 Exactly-once 语义。
     val kafkaStream = KafkaUtils.createDirectStream[String,String](ssc, PreferConsistent, Subscribe[String, String](topics, kafkaParams))
     val events = kafkaStream.flatMap(
@@ -83,7 +94,5 @@ object SparkStreamingExactlyOnce {
         })
       })
     })
-    ssc.start()
-    ssc.awaitTermination()
   }
 }
