@@ -62,13 +62,19 @@ object UserClickCountByWindowAnalytics {
           val clickCount = pair._2
           val sql_isExist = "SELECT * from streaming_ostype where os_type = '" + os_type + "'"
           val sql_insert = "insert into streaming_ostype(os_type,clickCount) values('" + os_type + "'," + clickCount + ")"
-          val resultSet  = conn.createStatement().executeQuery(sql_isExist)
+          val ps = conn.prepareStatement(sql_isExist)
+          val resultSet = ps.executeQuery()
           if (resultSet.next()) {
             val count = resultSet.getString(2).toInt + clickCount.toInt
             val sql_update = "update streaming_ostype set clickCount ='"  + count + "' where os_type = '" + os_type + "'"
-            conn.createStatement().executeUpdate(sql_update)
+            val ps = conn.prepareStatement(sql_update)
+            ps.executeUpdate()
           }
-          else conn.createStatement().executeUpdate(sql_insert)
+          else {
+            val ps = conn.prepareStatement(sql_insert)
+            ps.executeUpdate()
+          }
+          ps.close()
           conn.close()
         })
       })

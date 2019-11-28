@@ -18,7 +18,7 @@ object UserClickCountAnalytics {
     // 创建 SparkConf 和 StreamingContext
     val master = if (args.length > 0) args(0) else "local[1]"
     val conf = new SparkConf().setMaster(master).setAppName("UserClickCountAnalytics")
-    val ssc = new StreamingContext(conf, Seconds(5)) // 按5S来划分一个微批处理
+    val ssc = new StreamingContext(conf, Seconds(1)) // 按5S来划分一个微批处理
 
     // kafka 配置：消费Kafka 中，topic为 user_events的消息
     val topics = Array("user_events")
@@ -55,13 +55,19 @@ object UserClickCountAnalytics {
           val clickCount = pair._2
           val sql_isExist = "SELECT * from streaming where uid = '" + uid + "'"
           val sql_insert = "insert into streaming(uid,clickCount) values('" + uid + "'," + clickCount + ")"
-          val resultSet  = conn.createStatement().executeQuery(sql_isExist)
+          val ps = conn.prepareStatement(sql_isExist)
+          val resultSet = ps.executeQuery()
           if (resultSet.next()) {
             val count = resultSet.getString(2).toInt + clickCount.toInt
             val sql_update = "update streaming set clickCount ='"  + count + "' where uid = '" + uid + "'"
-            conn.createStatement().executeUpdate(sql_update)
+            val ps = conn.prepareStatement(sql_update)
+            ps.executeUpdate()
+            resultSet.close()
+          } else {
+            val ps = conn.prepareStatement(sql_insert)
+            ps.executeUpdate()
           }
-          else conn.createStatement().executeUpdate(sql_insert)
+          ps.close()
           conn.close()
         })
       })

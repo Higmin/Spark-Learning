@@ -11,17 +11,18 @@ import java.sql.SQLException;
  **/
 public class DruidConnectionPool {
 
-	private static DruidDataSource datasource;
+	private static DruidDataSource datasource = new DruidDataSource();
+//	private DruidConnectionPool(){}
+//
+//	private static class Holder {
+//		private static DruidConnectionPool instance = new DruidConnectionPool();
+//	}
+//	public static DruidConnectionPool getInstance() {
+//		return Holder.instance;
+//	}
 
-	/**
-	 * 单例创建连接池对象
-	 * @return
-	 */
-//	@Bean
-//	@Primary
 	public static DataSource getDataSource() {
 		// 数据源配置
-		datasource = new DruidDataSource();
 		datasource.setUrl("jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=true");
 		datasource.setUsername("root");
 		datasource.setPassword("root");   //这里可以做加密处理
@@ -30,7 +31,7 @@ public class DruidConnectionPool {
 		// 连接池配置
 		datasource.setInitialSize(20); // 初始化连接大小
 		datasource.setMinIdle(20); // 最小连接池数量
-		datasource.setMaxActive(100); // 最大连接池数量
+		datasource.setMaxActive(200); // 最大连接池数量
 		datasource.setMaxWait(60000); // 获取连接时最大等待时间，单位毫秒
 		datasource.setTimeBetweenEvictionRunsMillis(6000); // 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
 		datasource.setMinEvictableIdleTimeMillis(300000); // 配置一个连接在池中最小生存的时间，单位是毫秒
@@ -49,28 +50,4 @@ public class DruidConnectionPool {
 		return datasource;
 	}
 
-	// 以下是Spring中的一些配置Bean
-//	@Bean
-//	public ServletRegistrationBean statViewServlet(){
-//		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
-//		servletRegistrationBean.addInitParameter("allow","127.0.0.1");  //设置ip白名单
-//		servletRegistrationBean.addInitParameter("deny","192.168.10.103");//设置ip黑名单，优先级高于白名单
-//		//设置控制台管理用户
-//		servletRegistrationBean.addInitParameter("loginUsername","admin");
-//		servletRegistrationBean.addInitParameter("loginPassword","admin");
-//		//是否可以重置数据
-//		servletRegistrationBean.addInitParameter("resetEnable","false");
-//		return servletRegistrationBean;
-//	}
-//
-//	@Bean(name = "druidStatFilter")
-//	public FilterRegistrationBean statFilter(){
-//		//创建过滤器
-//		FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(new WebStatFilter());
-//		//设置过滤器过滤路径
-//		filterRegistrationBean.addUrlPatterns("/*");
-//		//忽略过滤的形式
-//		filterRegistrationBean.addInitParameter("exclusions","*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-//		return filterRegistrationBean;
-//	}
 }
