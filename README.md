@@ -52,3 +52,4 @@ Exactly-once 语义是实时计算的难点之一。
 在使用 Spark RDD 对数据进行 转换或汇总 时，我们可以天然获得 Exactly-once 语义，因为 RDD 本身就是一种具备容错性、不变性、以及计算确定性的数据结构。只要数据来源是可用的，且处理过程中没有副作用（Side effect），我们就能一直得到相同的计算结果。  
 
 实时计算中的 Exactly-once 是比较强的一种语义，因而会给你的应用程序引入额外的开销。此外，它尚不能很好地支持窗口型操作。因此，是否要在代码中使用这一语义就需要开发者自行判断了。很多情况下，数据丢失或重复处理并不那么重要。不过，了解 Exactly-once 的开发流程还是有必要的，对学习 Spark Streaming 也会有所助益。  
+##### 代码详情：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/sparkStreamingExactltyOnce
