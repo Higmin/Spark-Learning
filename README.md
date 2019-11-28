@@ -35,7 +35,7 @@ Kafka + SparkStreaming + Redis 每5秒 统计 过去10秒 每种终端 收到的
   
 ## 3.Kafka + SparkStreaming + mysql
 Kafka + SparkStreaming + mysql 模拟 Kafka 生产者 实时写入用户行为的事件数据，数据是JSON格式  
-Kafka + SparkStreaming + mysql java实现 mysql连接池（本例中使用阿里开源的 druid 连接池 ）
+Kafka + SparkStreaming + mysql java实现 mysql连接池（本例中使用阿里开源的 druid 连接池 ）  
 Kafka + SparkStreaming + mysql 实现实时统计每个用户的点击次数，它是按照用户分组进行累加次数  
 Kafka + SparkStreaming + mysql 每5秒 统计 过去10秒 每种终端 收到的点击量  
 注意：
