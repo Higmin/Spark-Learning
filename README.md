@@ -6,7 +6,7 @@ spark-streaming_2.12 版本-2.4.4
 spark-streaming-kafka-0-10_2.12 版本-2.4.4  
 
 ### 数据来源：https://grouplens.org/datasets/movielens/  
-### 本地测试方法：  
+### 本地测试方法 ：  
 1. 本地安装Spark 2.4.4 ,redis（往redis存需要安装redis） ， mysql（往 mysql 存需要安装 mysql ）  
   => MySQL相关说明：用户名 root ,密码 root 。创建数据库test,
   => 创建数据表 streaming [uid（varchar 255）; clickCount （varchar 255）] 
