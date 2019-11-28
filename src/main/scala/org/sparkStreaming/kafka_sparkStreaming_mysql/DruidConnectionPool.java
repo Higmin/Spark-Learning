@@ -28,9 +28,9 @@ public class DruidConnectionPool {
 		datasource.setDriverClassName("com.mysql.jdbc.Driver");
 
 		// 连接池配置
-		datasource.setInitialSize(5); // 初始化连接大小
-		datasource.setMinIdle(5); // 最小连接池数量
-		datasource.setMaxActive(20); // 最大连接池数量
+		datasource.setInitialSize(20); // 初始化连接大小
+		datasource.setMinIdle(20); // 最小连接池数量
+		datasource.setMaxActive(100); // 最大连接池数量
 		datasource.setMaxWait(60000); // 获取连接时最大等待时间，单位毫秒
 		datasource.setTimeBetweenEvictionRunsMillis(6000); // 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
 		datasource.setMinEvictableIdleTimeMillis(300000); // 配置一个连接在池中最小生存的时间，单位是毫秒
