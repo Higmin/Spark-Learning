@@ -11,7 +11,7 @@ import java.util.Properties;
 public class DruidConnectionPool {
 
 	public DataSource dataSource;
-	private static Properties pro = new Properties();
+	private Properties pro = new Properties();
 
 	private DruidConnectionPool() {
 		try {
@@ -30,7 +30,7 @@ public class DruidConnectionPool {
 		return Holder.instance;
 	}
 
-	private static void init() {
+	private void init() {
 		// 数据源配置
 		pro.setProperty("driverClassName", "com.mysql.jdbc.Driver");
 		pro.setProperty("url", "jdbc:mysql://localhost:3306/test?characterEncoding=utf8&useSSL=true");
