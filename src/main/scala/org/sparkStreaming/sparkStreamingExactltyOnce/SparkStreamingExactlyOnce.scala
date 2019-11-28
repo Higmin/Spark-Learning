@@ -20,7 +20,6 @@ import org.sparkStreaming.kafka_sparkStreaming_mysql.DruidConnectionPool
 object SparkStreamingExactlyOnce {
 
   def main(args: Array[String]): Unit = {
-
     // 创建 SparkConf 和 StreamingContext
     val master = if (args.length > 0) args(0) else "local[1]"
     // 创建检查点路径
@@ -60,7 +59,7 @@ object SparkStreamingExactlyOnce {
     "bootstrap.servers" -> brokers,
     "key.deserializer" -> classOf[StringDeserializer],
     "value.deserializer" -> classOf[StringDeserializer],
-    "group.id" -> "use_a_separate_group_id_for_each_stream",
+    "group.id" -> "SparkStreamingExactlyOnce_group",
     "auto.offset.reset" -> "latest",
     "enable.auto.commit" -> (false: java.lang.Boolean)
     )
@@ -78,7 +77,9 @@ object SparkStreamingExactlyOnce {
     userClicks.foreachRDD(rdd => {
       rdd.foreachPartition(partitionOfRecords => {
         partitionOfRecords.foreach(pair => {
-          val conn = DruidConnectionPool.getDataSource.getConnection
+          // 创建连接池
+          val dataSource = DruidConnectionPool.getInstance().dataSource
+          val conn = dataSource.getConnection
           val uid = pair._1
           val clickCount = pair._2
           val sql_isExist = "SELECT * from streaming where uid = '" + uid + "'"

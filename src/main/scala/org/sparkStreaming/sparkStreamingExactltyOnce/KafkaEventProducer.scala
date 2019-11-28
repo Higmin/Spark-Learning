@@ -62,7 +62,7 @@ object KafkaEventProducer {
       producer.send(new ProducerRecord[String,String]("user_events",event.toString()))
       println("Message sent: " + event.toString)
 
-      Thread.sleep(2000)
+      Thread.sleep(200)
     }
   }
 }

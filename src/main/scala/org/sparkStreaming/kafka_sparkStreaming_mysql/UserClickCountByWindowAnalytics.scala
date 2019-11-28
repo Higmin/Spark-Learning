@@ -34,7 +34,7 @@ object UserClickCountByWindowAnalytics {
       "bootstrap.servers" -> brokers,
       "key.deserializer" -> classOf[StringDeserializer],
       "value.deserializer" -> classOf[StringDeserializer],
-      "group.id" -> "use_a_separate_group_id_for_each_stream",
+      "group.id" -> "UserClickCountByWindowAnalytics_group",
       "auto.offset.reset" -> "latest",
       "enable.auto.commit" -> (false: java.lang.Boolean)
     )
@@ -57,7 +57,9 @@ object UserClickCountByWindowAnalytics {
     userClicks.foreachRDD(rdd => {
       rdd.foreachPartition(partitionOfRecords => {
         partitionOfRecords.foreach(pair => {
-          val conn = DruidConnectionPool.getDataSource.getConnection
+          // 创建连接池
+          val dataSource = DruidConnectionPool.getInstance().dataSource
+          val conn = dataSource.getConnection
           val os_type = pair._1
           val clickCount = pair._2
           val sql_isExist = "SELECT * from streaming_ostype where os_type = '" + os_type + "'"
