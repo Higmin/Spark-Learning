@@ -1,4 +1,5 @@
-# SparkMovie
+# SparkMovie 
+# 观众电影分析 =>Spark离线批处理，用户实时点击统计（Kafka + SparkStreaming + Redis）和（Kafka + SparkStreaming + Mysql）
 Spark观众电影分析，用户实时点击统计（Kafka + SparkStreaming + Redis）  
 spark 版本-2.4.4  
 spark-streaming_2.12 版本-2.4.4  
