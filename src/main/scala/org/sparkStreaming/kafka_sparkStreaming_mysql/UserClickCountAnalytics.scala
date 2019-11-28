@@ -1,7 +1,5 @@
 package org.sparkStreaming.kafka_sparkStreaming_mysql
 
-import java.sql.ResultSet
-
 import net.sf.json.JSONObject
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.SparkConf
@@ -11,7 +9,7 @@ import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
 /**
-  * 读取kafka中的数据，结果存在redis中
+  * 读取kafka中的数据，结果存在mysql中
   * 实现实时统计每个用户的点击次数，它是按照用户分组进行累加次数，逻辑比较简单
   * 关键是在实现过程中要注意一些问题，如对象序列化等
   */
@@ -21,7 +19,6 @@ object UserClickCountAnalytics {
     val master = if (args.length > 0) args(0) else "local[1]"
     val conf = new SparkConf().setMaster(master).setAppName("UserClickCountAnalytics")
     val ssc = new StreamingContext(conf, Seconds(5)) // 按5S来划分一个微批处理
-    ssc.checkpoint("data/checkpoint")
 
     // kafka 配置：消费Kafka 中，topic为 user_events的消息
     val topics = Array("user_events")
