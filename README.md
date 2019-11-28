@@ -1,5 +1,5 @@
 # SparkMovie 
-# 受众电影分析 => Spark离线批处理，spark-streaming用户实时点击统
+# 受众电影分析 => Spark离线批处理，spark-streaming用户实时点击统计
 Spark受众电影分析，用户实时点击统计（Kafka + SparkStreaming + Redis）  
 spark 版本-2.4.4  
 spark-streaming_2.12 版本-2.4.4  
