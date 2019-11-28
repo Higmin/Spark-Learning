@@ -40,5 +40,5 @@ Kafka + SparkStreaming + mysql 实现实时统计每个用户的点击次数，�
 Kafka + SparkStreaming + mysql 每5秒 统计 过去10秒 每种终端 收到的点击量  
 注意：
   * 1. 使用 SparkStreaming窗口 计算需要设置检查点 checkpoint
-  * 2. 窗口滑动长度和窗口长度一定要是SparkStreaming微批处理时间的整数倍,不然会报错
+  * 2. 窗口滑动长度和窗口长度一定要是SparkStreaming微批处理时间的整数倍,不然会报错  
 代码详情：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_mysql
