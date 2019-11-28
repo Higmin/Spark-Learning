@@ -5,6 +5,16 @@ spark-streaming_2.12 版本-2.4.4
 spark-streaming-kafka-0-10_2.12 版本-2.4.4  
 
 ### 数据来源：https://grouplens.org/datasets/movielens/  
+### 本地测试方法：  
+1. 本地安装Spark 2.4.4 ,redis（往redis存需要安装redis） ， mysql（往 mysql 存需要安装 mysql ）  
+  => MySQL相关说明：用户名 root ,密码 root 。创建数据库test,
+  => 创建数据表 streaming [uid（varchar 255）; clickCount （varchar 255）] 
+  => 创建数据表treaming_ostype[os_type（varchar 255）; clickCount （varchar 255）]
+2. 下载示例代码  
+3. Kafka + SparkStreaming + Redis 和 Kafka + SparkStreaming + mysql 运行流程相同  
+4. 启动 kafka 消息模拟生产者
+5. 启动 sparkStreaming 实时计算任务。
+结果：可在 redis 或者 mysql 中查看
 
 ## 1.Spark
 Spark 任务一：统计看过 “Sixteen Candles” 的用户、性别和观看次数  
