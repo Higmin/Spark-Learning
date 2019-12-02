@@ -29,7 +29,7 @@ object SparkStreamingExactlyOnce {
 
     // kafka 配置：消费Kafka 中，topic为 user_events的消息
     val brokers = if (args.length > 2) args(2) else "192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092"
-    val topicNames = if (args.length > 3) args(3) else "user_events"
+    val topicNames = if (args.length > 3) args(3) else "user_events_ExactltyOnce"
 
     def createSSC(): StreamingContext = {
       val ssc = new StreamingContext(conf, Seconds(5)) // 按5S来划分一个微批处理

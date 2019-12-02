@@ -59,7 +59,7 @@ object KafkaEventProducer {
         .accumulate("click_count", click()) // 点击次数
 
       // produce event message
-      producer.send(new ProducerRecord[String,String]("user_events",event.toString()))
+      producer.send(new ProducerRecord[String,String]("user_events_redis",event.toString()))
       println("Message sent: " + event.toString)
 
       Thread.sleep(200)

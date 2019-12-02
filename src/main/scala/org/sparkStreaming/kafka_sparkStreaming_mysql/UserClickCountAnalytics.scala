@@ -21,7 +21,7 @@ object UserClickCountAnalytics {
     val ssc = new StreamingContext(conf, Seconds(1)) // 按5S来划分一个微批处理
 
     // kafka 配置：消费Kafka 中，topic为 user_events的消息
-    val topics = Array("user_events")
+    val topics = Array("user_events_mysql")
     val brokers = "192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092"
     // 读取kafka数据
     val kafkaParams = Map[String,Object](

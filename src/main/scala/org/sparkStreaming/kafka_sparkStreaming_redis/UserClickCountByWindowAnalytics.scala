@@ -27,7 +27,7 @@ object UserClickCountByWindowAnalytics {
     ssc.checkpoint(checkpointDir)
 
     // kafka 配置：消费Kafka 中，topic为 user_events的消息
-    val topics = Array("user_events")
+    val topics = Array("user_events_redis")
     val brokers = "192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092"
     // 读取kafka数据
     val kafkaParams = Map[String,Object](
