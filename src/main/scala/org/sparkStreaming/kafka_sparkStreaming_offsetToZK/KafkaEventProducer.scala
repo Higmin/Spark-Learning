@@ -38,7 +38,7 @@ object KafkaEventProducer {
   }
 
   def main(args: Array[String]): Unit = {
-    val topic = "user_events"
+    val topic = "user_events_zk"
     val brokers = "192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092"
     val props = new Properties()
     props.put("bootstrap.servers",brokers)
