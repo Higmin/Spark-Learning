@@ -54,16 +54,15 @@ Exactly-once 语义是实时计算的难点之一。
 实时计算中的 Exactly-once 是比较强的一种语义，因而会给你的应用程序引入额外的开销。此外，它尚不能很好地支持窗口型操作。因此，是否要在代码中使用这一语义就需要开发者自行判断了。很多情况下，数据丢失或重复处理并不那么重要。不过，了解 Exactly-once 的开发流程还是有必要的，对学习 Spark Streaming 也会有所助益。  
 ##### 代码详情：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/sparkStreamingExactltyOnce
 
-##5.Kafka + SparkStreaming手动管理 offset
+## 5.Kafka + SparkStreaming手动管理 offset
 为了应对可能出现的引起Streaming程序崩溃的异常情况，我们一般都需要手动管理好Kafka的offset，而不是让它自动提交，即需要将enable.auto.commit设为false。只有管理好offset，才能使整个流式系统最大限度地接近exactly once语义。  
 Offsets可以通过多种方式来管理，但是一般来说遵循下面的步骤:
 
 1. 在 Direct DStream初始化的时候，需要指定一个包含每个topic的每个分区的offset用于让Direct DStream从指定位置读取数据。
  （offsets就是步骤4中所保存的offsets位置）
+2. 读取并处理消息
 
-2.读取并处理消息
-
-3.处理完之后存储结果数据
+3. 处理完之后存储结果数据
 
 用虚线圈存储和提交offset只是简单强调用户可能会执行一系列操作来满足他们更加严格的语义要求。这包括幂等操作和通过原子操作的方式存储offset。
 
