@@ -44,7 +44,7 @@ object UserClickCountAnalytics {
         Some(data)
       })
 
-    // 统计用户点击次数  根据uid 统计 click_count（累加是在redis中做的）
+    // 统计用户点击次数  根据uid 统计 click_count
     val userClicks = events.map(x => {(x.getString("uid"),x.getInt("click_count"))}) // 计算每个微批处理的统计结果
       .reduceByKey(_+_)
     userClicks.foreachRDD(rdd => {
