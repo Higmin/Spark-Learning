@@ -38,7 +38,7 @@ object KafkaEventProducer {
   }
 
   def main(args: Array[String]): Unit = {
-    val topic = "user_events_zk"
+    val topics = "user_events_zk"
     val brokers = "192.168.183.150:9092,192.168.183.151:9092,192.168.183.152:9092"
     val props = new Properties()
     props.put("bootstrap.servers",brokers)
@@ -56,7 +56,7 @@ object KafkaEventProducer {
         .accumulate("click_count", click()) // 点击次数
 
       // produce event message
-      producer.send(new ProducerRecord[String,String]("user_events_zk",event.toString()))
+      producer.send(new ProducerRecord[String,String](topics,event.toString()))
       println("Message sent: " + event.toString)
 
       Thread.sleep(200)
