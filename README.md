@@ -68,7 +68,7 @@ Offsets可以通过多种方式来管理，但是一般来说遵循下面的步�
 
 4.最后，将offsets保存在外部持久化数据库如 HBase, Kafka, HDFS, and ZooKeeper中    
 参考博客：https://blog.csdn.net/rlnLo2pNEfx9c/article/details/79988218  
-  ##### 5.1 存储在kafka本身 (注意： commitAsync()是Spark Streaming集成kafka-0-10版本中的，在Spark文档提醒到它仍然是个实验性质的API并且存在修改的可能性。)
+  #### 5.1 存储在kafka本身 (注意： commitAsync()是Spark Streaming集成kafka-0-10版本中的，在Spark文档提醒到它仍然是个实验性质的API并且存在修改的可能性。)
 ```markdown
 stream.foreachRDD { rdd =>
   val offsetRanges = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
@@ -77,10 +77,10 @@ stream.foreachRDD { rdd =>
   stream.asInstanceOf[CanCommitOffsets].commitAsync(offsetRanges)
 }
 ```
-  ##### 5.2 存储在zookeeper等外部存储  
+  #### 5.2 存储在zookeeper等外部存储  
 #####详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_offsetToZK
 
-  ##### 5.3 为什么不用SparkStreaming 的 checkpoint?  
+  #### 5.3 为什么不用SparkStreaming 的 checkpoint?  
 Spark Streaming的checkpoint机制无疑是用起来最简单的，checkpoint数据存储在HDFS中，如果Streaming应用挂掉，可以快速恢复。  
 但是，如果Streaming程序的代码改变了，重新打包执行就会出现反序列化异常的问题。这是因为checkpoint首次持久化时会将整个jar包序列化，以便重启时恢复。重新打包之后，新旧代码逻辑不同，就会报错或者仍然执行旧版代码。  
 要解决这个问题，只能将HDFS上的checkpoint文件删掉，但这样也会同时删掉Kafka的offset信息，就毫无意义了。  
