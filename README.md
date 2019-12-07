@@ -78,7 +78,7 @@ stream.foreachRDD { rdd =>
 }
 ```
   #### 5.2 存储在zookeeper等外部存储  
-#####详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_offsetToZK
+##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_offsetToZK
 
   #### 5.3 为什么不用SparkStreaming 的 checkpoint?  
 Spark Streaming的checkpoint机制无疑是用起来最简单的，checkpoint数据存储在HDFS中，如果Streaming应用挂掉，可以快速恢复。  
