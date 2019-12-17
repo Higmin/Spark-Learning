@@ -2,6 +2,9 @@ package org.sparkSQL
 
 import org.apache.spark.sql.{Row, SparkSession}
 
+/**
+  * Spark SQL 统计分析web日志内容
+  */
 object LogAnalyzerSQL {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()
