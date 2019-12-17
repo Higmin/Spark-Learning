@@ -1,4 +1,4 @@
-# SparkMovie 
+## 欢迎大家来到 Higmin/SparkObject
 # 1. 受众电影分析 => Spark离线批处理，spark-streaming用户实时点击统计
 # 2. SparkSQL网站日志内容分析
 Spark受众电影分析，用户实时点击统计（Kafka + SparkStreaming + Redis）  
