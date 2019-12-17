@@ -87,7 +87,7 @@ Spark Streaming的checkpoint机制无疑是用起来最简单的，checkpoint数
 但是，如果Streaming程序的代码改变了，重新打包执行就会出现反序列化异常的问题。这是因为checkpoint首次持久化时会将整个jar包序列化，以便重启时恢复。重新打包之后，新旧代码逻辑不同，就会报错或者仍然执行旧版代码。  
 要解决这个问题，只能将HDFS上的checkpoint文件删掉，但这样也会同时删掉Kafka的offset信息，就毫无意义了。  
 
-## 4.Spark SQL 网站日志内容分析
+## 6.Spark SQL 网站日志内容分析
 SparkSQL是spark用来处理结构化的一个模块，它提供一个抽象的数据集DataFrame,并且是作为分布式SQL查询引擎的应用。  
 SparkSQL实现了Hive兼容，执行计划生成和优化都由Catalyst负责。借助Scala的模式匹配等函数式语言特性，利用Catalyst开发执行计划优化策略比Hive要简洁得多。  
 关于Dataframe和Dataset：Dataframe/Dataset也是分布式数据集，但与RDD不同的是其带有schema信息，类似一张表。Dataset是在spark1.6引入的，目的是提供像RDD一样的强类型、使用强大的lambda函数，同时使用spark sql的优化执行引擎。到spark2.0以后，DataFrame变成类型为Row的Dataset，即为：
