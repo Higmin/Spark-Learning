@@ -6,9 +6,7 @@
   <inceptionYear>2008</inceptionYear>
   <properties>
     <scala.version>2.12.2</scala.version>
-    <spark-core_2.12.version>2.4.4</spark-core_2.12.version>
-    <spark-streaming_2.12.version>2.4.4</spark-streaming_2.12.version>
-    <spark-streaming-kafka-0-10_2.12.version>2.4.4</spark-streaming-kafka-0-10_2.12.version>
+    <spark.version>2.4.4</spark.version>
     <kafka.version>0.10.2.2</kafka.version>
     <junit.version>3.8.2</junit.version>
     <specs.version>1.2.5</specs.version>
@@ -59,20 +57,26 @@
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.12</artifactId>
-      <version>${spark-core_2.12.version}</version>
+      <version>${spark.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_2.11</artifactId>
+      <version>${spark.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-streaming_2.12</artifactId>
-      <version>${spark-streaming_2.12.version}</version>
+      <version>${spark.version}</version>
 <!--      <scope>provided</scope>-->
     </dependency>
 
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-streaming-kafka-0-10_2.12</artifactId>
-      <version>${spark-streaming-kafka-0-10_2.12.version}</version>
+      <version>${spark.version}</version>
     </dependency>
 
     <dependency>
