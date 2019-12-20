@@ -24,7 +24,7 @@ spark-sql_2.11 版本-2.4.4
 Spark 任务一：统计看过 “Sixteen Candles” 的用户、性别和观看次数  
 Spark 任务二：统计年龄段在20-30的年轻人，最喜欢看哪10部电影  
 Spark 任务三：最受欢迎的前三部电影(平均评分最高的三部电影)  
-##### 代码详情：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/spark/movie
+##### 代码详情：https://github.com/Higmin/SparkObject/tree/master/src/main/scala/org/spark/movie
 
 ## 2.Spark SQL 内容分析
 SparkSQL是spark用来处理结构化的一个模块，它提供一个抽象的数据集DataFrame,并且是作为分布式SQL查询引擎的应用。  
@@ -34,10 +34,10 @@ SparkSQL实现了Hive兼容，执行计划生成和优化都由Catalyst负责。
 type DataFrame = Dataset[Row]
 ``  
   #### 2.1 这里是一个SparkSQL读取Weblog 日志文件的数据分析实例：  
-##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL
+##### 详情请参考：https://github.com/Higmin/SparkObject/tree/master/src/main/scala/org/sparkSQL
 
   #### 2.2 另外还有spark 读取 Hbase 中的数据，并转换为 DataFrame ,利用SparkSQL 进行数据分析：
-##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL/SensorLog  
+##### 详情请参考：https://github.com/Higmin/SparkObject/tree/master/src/main/scala/org/sparkSQL/SensorLog  
 Hbsse 表数据结构如下：（以下列举一条数据）  
 
 rowKey  |   columnFamily   |   column              |       	value     
@@ -71,7 +71,7 @@ Kafka + SparkStreaming + Redis 每5秒 统计 过去10秒 每种终端 收到的
 注意：
   * 1. 使用 SparkStreaming窗口 计算需要设置检查点 checkpoint
   * 2. 窗口滑动长度和窗口长度一定要是SparkStreaming微批处理时间的整数倍,不然会报错
-##### 代码详情：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_redis
+##### 代码详情：https://github.com/Higmin/SparkObject/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_redis
   
 ## 4.Kafka + SparkStreaming + mysql
 Kafka + SparkStreaming + mysql 模拟 Kafka 生产者 实时写入用户行为的事件数据，数据是JSON格式  
@@ -81,7 +81,7 @@ Kafka + SparkStreaming + mysql 每5秒 统计 过去10秒 每种终端 收到的
 注意：
   * 1. 使用 SparkStreaming窗口 计算需要设置检查点 checkpoint
   * 2. 窗口滑动长度和窗口长度一定要是SparkStreaming微批处理时间的整数倍,不然会报错  
-##### 代码详情：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_mysql
+##### 代码详情：https://github.com/Higmin/SparkObject/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_mysql
 
 ## 5.Spark Streaming 中实现 Exactly-Once 语义
 Exactly-once 语义是实时计算的难点之一。  
@@ -92,7 +92,7 @@ Exactly-once 语义是实时计算的难点之一。
 在使用 Spark RDD 对数据进行 转换或汇总 时，我们可以天然获得 Exactly-once 语义，因为 RDD 本身就是一种具备容错性、不变性、以及计算确定性的数据结构。只要数据来源是可用的，且处理过程中没有副作用（Side effect），我们就能一直得到相同的计算结果。  
 
 实时计算中的 Exactly-once 是比较强的一种语义，因而会给你的应用程序引入额外的开销。此外，它尚不能很好地支持窗口型操作。因此，是否要在代码中使用这一语义就需要开发者自行判断了。很多情况下，数据丢失或重复处理并不那么重要。不过，了解 Exactly-once 的开发流程还是有必要的，对学习 Spark Streaming 也会有所助益。  
-##### 代码详情：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/sparkStreamingExactltyOnce
+##### 代码详情：https://github.com/Higmin/SparkObject/tree/master/src/main/scala/org/sparkStreaming/sparkStreamingExactltyOnce
 
 ## 6.Kafka + SparkStreaming手动管理 offset
 为了应对可能出现的引起Streaming程序崩溃的异常情况，我们一般都需要手动管理好Kafka的offset，而不是让它自动提交，即需要将enable.auto.commit设为false。只有管理好offset，才能使整个流式系统最大限度地接近exactly once语义。  
@@ -118,7 +118,7 @@ stream.foreachRDD { rdd =>
 }
 ```
   #### 6.2 存储在zookeeper等外部存储  
-##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_offsetToZK
+##### 详情请参考：https://github.com/Higmin/SparkObject/tree/master/src/main/scala/org/sparkStreaming/kafka_sparkStreaming_offsetToZK
 
   #### 6.3 为什么不用SparkStreaming 的 checkpoint?  
 Spark Streaming的checkpoint机制无疑是用起来最简单的，checkpoint数据存储在HDFS中，如果Streaming应用挂掉，可以快速恢复。  
