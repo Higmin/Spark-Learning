@@ -97,3 +97,28 @@ type DataFrame = Dataset[Row]
 ##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL
 
 另外还有spark 读取 Hbase 中的数据，并转换为 DataFrame ,利用SparkSQL 进行查询：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL/SensorLog  
+Hbsse 表数据结构如下：以下列举一条数据  
+
+rowKey  |   columnFamily   |   column              |       	value     
+--------|------------------|-----------------------|-----------------
+2314035476751 | info | AndroidBoard::availableStorage	|	12379  
+2314035476751 | info |  AndroidBoard::cpu_usage		    |	4.32  
+2314035476751 | info | AndroidBoard::current		    | 	1.3  
+2314035476751 | info | AndroidBoard::storage		    | 	12661  
+2314035476751 | info | AndroidBoard::voltage	        | 	11.8  
+2314035476751 | info | AxialFanSpeed			        | 	56.666666666666664  
+2314035476751 | info | BackLight::state			        | 	true  
+2314035476751 | info | BlEnable::state				    | 	true  	
+2314035476751 | info | CrossFlowFanSpeed::value		    | 	40  
+2314035476751 | info | Decibel::value				    | 	40  	
+2314035476751 | info | DoorState::state			        | 	false  
+2314035476751 | info | GPS::latitude			        | 	39.950565  	
+2314035476751 | info | GPS::longitude			        | 	116.500711  	
+2314035476751 | info | Humidity::value			        | 	40  
+2314035476751 | info | Level::value				        | 	80  
+2314035476751 | info | PowerState::state		        | 	false  
+2314035476751 | info | PowerState::value		        | 	0.8  
+2314035476751 | info | Temperature				        | 	29.0  	
+2314035476751 | info | Time						        | 	1576745304132  	
+2314035476751 | info | TotalPower::value		        | 	900  
+
