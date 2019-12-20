@@ -1,6 +1,6 @@
-package org.sparkSQL
+package org.sparkSQL.ApacheAccessLog
 
-import org.apache.spark.sql.{Row, SparkSession}
+import org.apache.spark.sql.SparkSession
 
 /**
   * Spark SQL 统计分析web日志内容

@@ -1,7 +1,8 @@
-package org.sparkSQL
+package org.sparkSQL.ApacheAccessLog
 
 /**
   * case class 用于接受日志对应字段
+  *
   * @param ipAddress
   * @param clientIdentd
   * @param userId

@@ -95,3 +95,5 @@ SparkSQL实现了Hive兼容，执行计划生成和优化都由Catalyst负责。
 type DataFrame = Dataset[Row]
 ``  
 ##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL
+
+另外还有spark 读取 Hbase 中的数据，并转换为 DataFrame ,利用SparkSQL 进行查询：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL/SensorLog  
