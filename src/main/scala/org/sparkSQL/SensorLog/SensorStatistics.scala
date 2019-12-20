@@ -50,6 +50,7 @@ object SensorStatistics {
 
     // 将查询结果映射到 case class
     val resultRDD = hbaseRDD.map(tuple => tuple._2)
+    // 将映射数据集转换为 DataFrame 以便 后期使用SQL开发查询统计
     val sensorRDD  = resultRDD.map(SensorRow.parseSensorRow).toDF()
 
     sensorRDD.show() // 打印表，一般开发的时候用
