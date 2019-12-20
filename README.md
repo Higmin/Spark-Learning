@@ -1,5 +1,6 @@
 ## 欢迎大家来到 Higmin/SparkObject
-# 1. Spark离线批处理 => 受众电影分析(数据来源：https://grouplens.org/datasets/movielens/ )
+# 1. Spark离线批处理 => 受众电影分析
+###  (数据来源：https://grouplens.org/datasets/movielens )
 # 2. SparkSQL内容分析 => Weblog 网站日志分析(数据源：log文件)、工业级传感器数据分析(数据源：Hbase)
 # 3. spark-streaming => 用户实时点击统计(数据源：kafka)
 Spark受众电影分析，用户实时点击统计（Kafka + SparkStreaming + Redis）  
