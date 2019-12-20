@@ -1,201 +1,201 @@
-                                 Apache许可证
-                           2.0版，2004年1月
+                                 Apache License
+                           Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
-   使用，复制和分发的条款和条件
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
-   1.定义。
+   1. Definitions.
 
-      “许可”是指使用，复制，
-      以及本文档第1至9节定义的分发。
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
 
-      “许可人”是指版权所有者或经
-      授予许可的版权所有者。
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
 
-      “法律实体”是指行为实体与所有
-      控制，受其控制或受其控制的其他实体
-      该实体的控制权。就此定义而言，
-      “控制”是指（i）直接或间接导致
-      对该实体的指示或管理，无论是通过合同还是
-      否则，或（ii）百分之五十（50％）或以上的所有权
-      已发行股份，或（iii）该实体的实益拥有权。
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
 
-      “您”（或“您的”）是指个人或法人实体
-      行使本许可证授予的权限。
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
 
-      “来源”表格是指进行修改的首选表格，
-      包括但不限于软件源代码，文档
-      源和配置文件。
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
 
-      “物体”形式是指机械产生的任何形式
-      源形式的转换或翻译，包括但
-      不限于已编译的目标代码，生成的文档，
-      并转换为其他媒体类型。
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
 
-      “作品”是指作者的作品，无论是在来源中还是在作者中
-      对象表，根据许可证提供，如
-      作品随附或随附的版权声明
-      （下面的附录中提供了一个示例）。
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
 
-      “衍生作品”是指任何作品，无论是源作品还是客体作品
-      表格，该表格基于（或衍生自）作品，并且
-      编辑修订，注释，细化或其他修改
-      总体上代表原创作品。出于目的
-      在本许可的范围内，衍生作品不应包括剩余的作品
-      与以下接口可分离或仅链接（或按名称绑定）：
-      作品及其衍生作品。
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
 
-      “贡献”是指任何作者的作品，包括
-      作品的原始版本以及任何修改或增补
-      该作品或其衍生作品，是故意的
-      提交给许可方，以供版权所有者将其包含在作品中
-      或由有权代表提交的个人或法人
-      版权拥有者。在此定义中，“已提交”
-      指发送的任何形式的电子，口头或书面通讯
-      发给许可人或其代表，包括但不限于
-      在电子邮件列表，源代码控制系统，
-      以及由或代表其管理的问题跟踪系统
-      出于讨论和改进工作的目的而授予许可者，但是
-      排除明显标记或其他方式的通信
-      由版权所有者书面指定为“非贡献”。
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
 
-      “贡献者”是指许可人和任何个人或法人实体
-      许可方代表谁收到了捐款，并且
-      随后纳入工作。
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
 
-   2.授予版权许可。遵守以下条款和条件
-      本授权书，每位贡献者特此授予您永久的，
-      全球性，非排他性，免费，免版税，不可撤销
-      复制，准备以下作品的版权作品的版权许可：
-      公开展示，公开表演，再许可和分发
-      源或对象形式的作品和此类衍生作品。
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
 
-   3.授予专利许可。遵守以下条款和条件
-      本授权书，每位贡献者特此授予您永久的，
-      全球性，非排他性，免费，免版税，不可撤销
-      （本节中规定的除外）制造，制造，
-      使用，提供要约，出售，进口和以其他方式转让作品，
-      此类许可仅适用于应许可的专利权利要求
-      被此类贡献者侵犯的行为
-      单独贡献或结合贡献
-      提交此类贡献的作品。如果你
-      针对任何实体（包括
-      在诉讼中提出交叉要求或反要求），指控该作品
-      或作品中包含的贡献直接构成
-      或共同专利侵权，然后是任何专利许可
-      根据本许可协议授予您的作品应终止
-      截至提起诉讼之日。
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
 
-   4.重新分配。您可以复制和分发
-      在任何媒介中，无论是否带有或不带有其作品，
-      修改，并以“源”或“对象”形式提供，前提是您
-      满足以下条件：
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
 
-      （a）您必须将作品的其他任何收件人或
-          衍生作品本许可的副本；和
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
 
-      （b）您必须使任何修改过的文件带有明显的注意事项
-          说明您更改了文件；和
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
 
-      （c）您必须以原始形式保留任何衍生作品
-          您分发的所有版权，专利，商标和
-          作品来源形式的出处通知，
-          排除与本手册任何部分无关的那些声明
-          衍生作品；和
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
 
-      （d）如果作品包含“注意”文本文件作为其一部分
-          发行，那么您发行的任何衍生作品都必须
-          包含可读的归属声明副本
-          在此类NOTICE文件中，不包括那些没有
-          与衍生作品的任何部分有关，至少
-          以下位置：在NOTICE文本文件中分发
-          作为衍生作品的一部分；在“源”表单中或
-          文件（如果与衍生作品一起提供）；要么，
-          在衍生作品产生的显示中，如果且
-          通常在此类第三方通知出现的任何地方。内容
-          NOTICE文件的内容仅供参考，并且
-          不要修改许可证。您可以添加自己的归属
-          您分发的衍生作品中的通知
-          或作为作品中“通知”文本的附录
-          不能解释此类附加出处通知
-          作为修改许可证。
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
 
-      您可以在修改中添加自己的版权声明，
-      可能会提供其他或不同的许可条款和条件
-      用于您的修改的使用，复制或分发，或
-      对于所有此类衍生作品，只要您使用，
-      作品的复制和分发符合
-      本许可证中规定的条件。
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
 
-   5.提交文稿。除非您明确声明，否则，
-      有意提交以包括在作品中的任何贡献
-      您授予许可方的条款和条件
-      本许可，无任何其他条款或条件。
-      尽管有上述规定，此处的任何内容均不得取代或修改
-      您可能已执行的任何单独许可协议的条款
-      与许可方就此类贡献进行协商。
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
 
-   6.商标。本许可不授予使用该交易的许可
-      许可方的名称，商标，服务标记或产品名称，
-      除非出于合理和习惯使用的目的描述了
-      作品的来源并复制NOTICE文件的内容。
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
 
-   7.免责声明。除非适用法律要求或
-      书面同意，由许可方提供作品（每个
-      贡献者在“按现状”基础上提供其贡献），
-      没有任何明示或明示的保证或条件
-      暗示的，包括但不限于任何保证或条件
-      的标题，非侵权性，可销售性或适用性
-      特殊用途。您应全权负责确定
-      使用或重新分发作品的适当性并承担任何责任
-      与您在本许可下行使许可有关的风险。
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
 
-   8.责任范围。无论如何，在没有法律理论的情况下，
-      无论是在侵权（包括过失），合同还是其他方面，
-      除非适用法律要求（例如故意和严重
-      过失行为）或书面同意，任何贡献者
-      对您负责，包括任何直接，间接，特殊，
-      由于以下原因而造成的任何性质的偶然或间接损失
-      本许可的结果，或者由于不使用或无法使用
-      工作（包括但不限于因商誉损失，
-      工作停止，计算机故障或故障或任何其他
-      其他商业损害或损失），即使该贡献者
-      已被告知可能造成此类损害。
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
 
-   9.接受保修或其他责任。在重新分配时
-      您的作品或其衍生作品，您可以选择提供，
-      并收取以下费用：接受支持，保修，赔偿，
-      或与此相关的其他责任义务和/或权利
-      执照。但是，在接受此类义务时，您只能采取行动
-      代表您自己并独自承担责任，而不是代表
-      任何其他贡献者，并且只有在您同意赔偿时，
-      捍卫每个贡献者，并使他们不承担任何责任
-      该贡献者因理由引起或主张的索赔
-      您接受任何此类保证或其他责任。
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
 
-   条款和条件的结尾
+   END OF TERMS AND CONDITIONS
 
-   附录：如何将Apache许可证应用于您的工作。
+   APPENDIX: How to apply the Apache License to your work.
 
-      要将Apache许可证应用于您的工作，请附加以下内容
-      样板公告，字段用方括号“ {}”括起来
-      替换为您自己的识别信息。（不包括
-      括号！）文本应放在适当的位置
-      文件格式的注释语法。我们还建议
-      文件或类的名称以及目的说明都包含在
-      与版权声明相同的“打印页面”，更容易
-      第三方档案中的标识。
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
 
-   版权{yyyy} {版权所有者名称}
+   Copyright [yyyy] [name of copyright owner]
 
-   根据Apache许可版本2.0（“许可”）许可；
-   除非遵守许可，否则不得使用此文件。
-   您可以在以下位置获得许可的副本：
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
 
        http://www.apache.org/licenses/LICENSE-2.0
 
-   除非适用法律要求或书面同意，否则软件
-   根据许可分发的内容按“原样”分发，
-   没有任何明示或暗示的保证或条件。
-   有关特定语言的管理权限，请参阅许可证。
-   许可中的限制。
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
