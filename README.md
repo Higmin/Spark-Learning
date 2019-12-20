@@ -94,10 +94,10 @@ SparkSQL实现了Hive兼容，执行计划生成和优化都由Catalyst负责。
 ``
 type DataFrame = Dataset[Row]
 ``  
-  #### 6.1 这里是一个SparkSQL读取Weblog 日志文件的查询实例：  
+  #### 6.1 这里是一个SparkSQL读取Weblog 日志文件的数据分析实例：  
 ##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL
 
-  #### 6.2 另外还有spark 读取 Hbase 中的数据，并转换为 DataFrame ,利用SparkSQL 进行查询：
+  #### 6.2 另外还有spark 读取 Hbase 中的数据，并转换为 DataFrame ,利用SparkSQL 进行数据分析：
 ##### 详情请参考：https://github.com/Higmin/SparkMovie/tree/master/src/main/scala/org/sparkSQL/SensorLog  
 Hbsse 表数据结构如下：（以下列举一条数据）  
 
