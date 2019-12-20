@@ -1,14 +1,13 @@
 ## 欢迎大家来到 Higmin/SparkObject
-# 1. Spark离线批处理
-# 2. SparkSQL内容分析
-# 3. 受众电影分析 => spark-streaming用户实时点击统计
+# 1. Spark离线批处理 => 受众电影分析(数据来源：https://grouplens.org/datasets/movielens/ )
+# 2. SparkSQL内容分析 => Weblog 网站日志分析(数据源：log文件)、工业级传感器数据分析(数据源：Hbase)
+# 3. spark-streaming => 用户实时点击统计(数据源：kafka)
 Spark受众电影分析，用户实时点击统计（Kafka + SparkStreaming + Redis）  
 spark 版本-2.4.4  
 spark-streaming_2.12 版本-2.4.4  
 spark-streaming-kafka-0-10_2.12 版本-2.4.4  
 spark-sql_2.11 版本-2.4.4  
 
-### 数据来源：https://grouplens.org/datasets/movielens/  
 ### 本地测试方法 ：  
 1. 本地安装Spark 2.4.4 ,redis（往redis存需要安装redis） ， mysql（往 mysql 存需要安装 mysql ）  
   => MySQL相关说明：用户名 root ,密码 root 。创建数据库test,
