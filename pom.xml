@@ -28,7 +28,6 @@
   </repositories>
 
   <dependencies>
-
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
