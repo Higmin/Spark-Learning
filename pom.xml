@@ -14,7 +14,7 @@
     <jedis.version>2.5.2</jedis.version>
     <commons-pool2.version>2.2</commons-pool2.version>
     <json-lib.version>2.4</json-lib.version>
-    <mysql-connector.version>5.1.39</mysql-connector.version>
+    <mysql-connector.version>8.0.16</mysql-connector.version>
     <druid.version>1.0.28</druid.version>
     <hbase-mapreduce.version>2.1.2</hbase-mapreduce.version>
   </properties>
