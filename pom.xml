@@ -9,7 +9,7 @@
     <scala.version>2.12.2</scala.version>
     <spark.version>2.4.4</spark.version>
     <kafka.version>0.10.2.2</kafka.version>
-    <junit.version>3.8.2</junit.version>
+    <junit.version>4.13.1</junit.version>
     <specs.version>1.2.5</specs.version>
     <jedis.version>2.5.2</jedis.version>
     <commons-pool2.version>2.2</commons-pool2.version>
